@@ -1,5 +1,5 @@
 #import the USB and Time librarys into Python
-import usb.core, usb.util, time
+import usb.core, usb.util, sys, time
  
 #Allocate the name 'RoboArm' to the USB device
 RoboArm = usb.core.find(idVendor=0x1267, idProduct=0x001)

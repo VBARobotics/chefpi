@@ -5,10 +5,12 @@
 # Copyright:: 2018, The Authors, All Rights Reserved.
 #Install RFID Reader
 
+execute 'Clone Repository' do
+  command 'cd /home/pi&&git clone https://github.com/VBARobotics/rfid.git'
+  action:run
+end
 execute 'Install pyusb' do
-  command 'cd /home/pi&&git clone https://github.com/lthiery/SPI-Py.git
-&&cd SPI-Py/&&python setup.py install
-&&cd /home/pi&&git clone https://github.com/mxgxw/MFRC522-python.git'
+  command 'pip3 install pyusb spidev mfrc522'
   action:run
 end
 
