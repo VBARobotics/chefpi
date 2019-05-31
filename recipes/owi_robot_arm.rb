@@ -9,5 +9,5 @@ end
 
 execute 'Install pyusb' do
   command 'pip3 install pyusb'
-  action:run
+edchar action:run
 end
