@@ -5,6 +5,6 @@ execute 'Clone PyParrot Repository' do
   action:run
 end
 execute 'Install Pyparrot' do
-  command 'pip install pyparrot'
+  command 'pip3 install pyparrot'
   action:run
 end
