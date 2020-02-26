@@ -1,7 +1,7 @@
 #Install Pyparrot
 
 execute 'Clone PyParrot Repository' do
-  command 'cd /home/pi&&git clone https://github.com/amymcgovern/pyparrot&&chown 777 /home/pi/pyparrot'
+  command 'cd /home/pi&&git clone https://github.com/VBARobotics/drone.git&&chown 777 /home/pi/drone'
   action:run
 end
 
