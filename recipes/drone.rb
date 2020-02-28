@@ -6,7 +6,7 @@ execute 'Clone PyParrot Repository' do
 end
 
 execute 'Install Pyparrot Pre-Reuqisites' do
-  command 'apt-get install bluetooth bluez python-bluez libglib2.0-dev ffmpeg vlc'
+  command 'apt-get install bluetooth bluez python-bluez libglib2.0-dev ffmpeg vlc -y'
   action:run
 end
 
