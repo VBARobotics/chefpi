@@ -1,6 +1,6 @@
 execute 'Clone Repository' do
   command 'cd /home/pi&&git clone https://github.com/VBARobotics/led_strip.git'
-  user:pi
+  user 'pi'
   action:run
 end
 
