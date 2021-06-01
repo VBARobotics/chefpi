@@ -1,7 +1,35 @@
-sudo mkdir /mnt/bitcore
-vi /etc/fstab UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults 1 1
-wget https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz
-tar xzf bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz
-sudo install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*
-sudo apt-get install qt4-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y --fix-missing
+# sudo mkdir /mnt/bitcore
+# vi /etc/fstab UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults 1 1
+# wget https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz
+# tar xzf bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz
+# sudo install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*
+# sudo apt-get install qt4-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y --fix-missing
 
+directory '/mnt/bitcore' do
+    owner 'root'
+    group 'root'
+    mode '0777'
+    action :create
+  end
+
+remote_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
+    source 'https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
+    owner 'pi'
+    group 'pi'
+    mode '0755'
+    action :create
+  end
+
+  archive_file 'bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
+    destination      '/home/pi'
+  end
+
+  execute 'Install BitCoin' do
+    command 'install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*'
+    action:run
+  end
+
+  execute 'Install Missing Packages' do
+    command 'apt-get install qt4-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y --fix-missing'
+    action:run
+  end

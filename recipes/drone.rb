@@ -15,3 +15,14 @@ execute 'Install Pyparrot' do
   action:run
 end
 
+# apt_package 'name' do
+#   default_release              String
+#   options                      String, Array
+#   overwrite_config_files       true, false # default value: false
+#   package_name                 String, Array
+#   response_file                String
+#   response_file_variables      Hash # default value: {}
+#   timeout                      String, Integer
+#   version                      String, Array
+#   action                       Symbol # defaults to :install if not specified
+# end
