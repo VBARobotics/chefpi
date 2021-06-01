@@ -24,14 +24,15 @@ end
 #     destination      '/home/pi'
 #   end
 
-execute 'Install BitCoin' do
+execute 'Extract BitCoin' do
     command 'cd /home/pi&&tar xzf bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
     action:run
 end
 
 execute 'Extract BitCoin' do
-    command 'install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*'
+    command 'sudo install -m 0755 -o root -t /usr/local/bin /home/pi/bitcoin-0.20.1/bin/*'
     action:run
+    ignore_failure true
 end
 
 execute 'Install Missing Packages' do
