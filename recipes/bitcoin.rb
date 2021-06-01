@@ -24,13 +24,13 @@ end
 #     destination      '/home/pi'
 #   end
 
-execute 'Extract BitCoin' do
-    command 'install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*'
+execute 'Install BitCoin' do
+    command 'cd /home/pi&&tar xzf bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
     action:run
 end
 
-execute 'Install BitCoin' do
-    command 'cd /home/pi&&tar xzf bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
+execute 'Extract BitCoin' do
+    command 'install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*'
     action:run
 end
 
