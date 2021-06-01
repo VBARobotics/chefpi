@@ -20,7 +20,7 @@ remote_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
     action :create
   end
 
-  archive_file 'bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
+  archive_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
     destination      '/home/pi'
   end
 
