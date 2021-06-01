@@ -11,11 +11,11 @@ directory '/mnt/bitcore' do
     mode '0777'
     action :create
 end
+
 execute 'Edit Fstab' do
     command 'echo \"UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults,nofail,x-systemd.device-timeout=2 1 1\" >> /etc/fstab'
     action:run
 end
-/etc/fstab UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults 1 1
 
 remote_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
     source 'https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
