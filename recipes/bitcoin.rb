@@ -10,7 +10,7 @@ directory '/mnt/bitcore' do
     group 'root'
     mode '0777'
     action :create
-  end
+end
 
 remote_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
     source 'https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
@@ -18,18 +18,23 @@ remote_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
     group 'pi'
     mode '0755'
     action :create
-  end
+end
 
-  archive_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
-    destination      '/home/pi'
-  end
+#   archive_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
+#     destination      '/home/pi'
+#   end
 
-  execute 'Install BitCoin' do
+execute 'Extract BitCoin' do
     command 'install -m 0755 -o root -t /usr/local/bin bitcoin-0.20.1/bin/*'
     action:run
-  end
+end
 
-  execute 'Install Missing Packages' do
+execute 'Install BitCoin' do
+    command 'cd /home/pi&&tar xzf bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
+    action:run
+end
+
+execute 'Install Missing Packages' do
     command 'apt-get install qt4-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y --fix-missing'
     action:run
-  end
+end
