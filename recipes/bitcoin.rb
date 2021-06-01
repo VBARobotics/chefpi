@@ -13,7 +13,7 @@ directory '/mnt/bitcore' do
 end
 
 execute 'Edit Fstab' do
-    command 'echo \"UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults,nofail,x-systemd.device-timeout=2 1 1\" >> /etc/fstab'
+    command 'echo UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults,nofail,x-systemd.device-timeout=2 1 1 >> /etc/fstab'
     action:run
 end
 
