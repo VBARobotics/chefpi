@@ -18,7 +18,7 @@ execute 'Edit Fstab' do
 end
 
 remote_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
-    source 'https://bitcoin.org/bin/bitcoin-core-0.20.1/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz'
+    source 'https://bitcoin.org/bin/bitcoin-core-0.21.1/bitcoin-0.21.1-arm-linux-gnueabihf.tar.gz'
     owner 'pi'
     group 'pi'
     mode '0755'
