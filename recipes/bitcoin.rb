@@ -13,7 +13,7 @@ end
 # end
 version = "bitcoin-22.0"
 
-remote_file "/home/pi/#{version}.tar.gz" do
+remote_file "/home/pi/#{version}-arm-linux-gnueabihf.tar.gz" do
     source "https://bitcoin.org/bin/bitcoin-core-22.0/#{version}-arm-linux-gnueabihf.tar.gz"
     owner 'pi'
     group 'pi'
