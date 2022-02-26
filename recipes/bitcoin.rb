@@ -18,6 +18,7 @@ remote_file "/home/pi/#{version}-arm-linux-gnueabihf.tar.gz" do
     owner 'pi'
     group 'pi'
     mode '0755'
+    ssl_verify_mode :verify_none
     action :create
 end
 
