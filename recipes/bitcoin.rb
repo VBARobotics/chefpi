@@ -30,7 +30,7 @@ execute 'Extract BitCoin' do
     action:run
 end
 
-execute 'Extract BitCoin' do
+execute 'Install BitCoin' do
     command "sudo install -m 0755 -o root -t /usr/local/bin /home/pi/#{version}/bin/*"
     action:run
     # ignore_failure true
