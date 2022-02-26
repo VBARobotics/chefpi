@@ -1,4 +1,4 @@
-# This will install the software necessary to build a Bitcoin Node. Requires Chef Client 17+
+# This will install the software necessary to build a Bitcoin Node. Requires ARM based Chef Client 17+
 
 directory '/mnt/bitcore' do
     owner 'root'
