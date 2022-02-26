@@ -1,11 +1,11 @@
 name 'chefpi'
 maintainer 'David Squire'
-maintainer_email 'dsquire@vbainfo.com'
+maintainer_email 'dr.squire@protonmail.com'
 license 'All Rights Reserved'
 description 'This is a series of recipes that will configure a Raspbery Pi for various Robotics Projects'
 long_description 'Installs/Configures vba_robotics'
-version '0.3.9'
-chef_version '>= 15.0'
+version '0.4.0'
+chef_version '>= 17.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
