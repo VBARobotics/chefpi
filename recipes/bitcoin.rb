@@ -11,10 +11,11 @@ end
 #     command 'echo UUID=f3aeb9a9-d201-4ca9-9806-47150dca98e0 /mnt/bitcore ext4 defaults,nofail,x-systemd.device-timeout=2 1 1 >> /etc/fstab'
 #     action:run
 # end
-version = "bitcoin-22.0"
+version = '22.0'
+checksum = 'b8713c6c5f03f5258b54e9f436e2ed6d85449aa24c2c9972f91963d413e86311'
 
-remote_file "/home/pi/#{version}-arm-linux-gnueabihf.tar.gz" do
-    source "https://bitcoin.org/bin/bitcoin-core-22.0/#{version}-arm-linux-gnueabihf.tar.gz"
+remote_file "/home/pi/bitcoin-#{version}-arm-linux-gnueabihf.tar.gz" do
+    source "https://bitcoin.org/bin/bitcoin-core-#{version}/bitcoin-#{version}-arm-linux-gnueabihf.tar.gz"
     owner 'pi'
     group 'pi'
     mode '0755'
@@ -22,17 +23,22 @@ remote_file "/home/pi/#{version}-arm-linux-gnueabihf.tar.gz" do
     action :create
 end
 
+execute 'Check Checksum' do
+    command "gpg --verify '#{checksum}' /home/pi/bitcoin-#{version}-arm-linux-gnueabihf.tar.gz"
+    action:run
+end
+
 #   archive_file '/home/pi/bitcoin-0.20.1-arm-linux-gnueabihf.tar.gz' do
 #     destination      '/home/pi'
 #   end
 
 execute 'Extract BitCoin' do
-    command "cd /home/pi&&tar xzf #{version}-arm-linux-gnueabihf.tar.gz"
+    command "cd /home/pi&&tar xzf bitcoin-#{version}-arm-linux-gnueabihf.tar.gz"
     action:run
 end
 
 execute 'Install BitCoin' do
-    command "sudo install -m 0755 -o root -t /usr/local/bin /home/pi/#{version}/bin/*"
+    command "sudo install -m 0755 -o root -t /usr/local/bin /home/pi/bitcoin-#{version}/bin/*"
     action:run
     # ignore_failure true
 end
