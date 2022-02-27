@@ -1,6 +1,8 @@
 # vba_robotics CHANGELOG
 
 This file is used to list changes made in each version of the vba_robotics cookbook.
+# 0.4.2
+Added Bitcoin Cleanup Routine
 # 0.4.1
 Removed ssl check for bitcoin.org download
 # 0.4.0

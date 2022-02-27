@@ -43,8 +43,14 @@ execute 'Install BitCoin' do
     # ignore_failure true
 end
 
-execute 'Install Missing Packages' do
-    command 'apt-get install qt4-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y --fix-missing'
+# execute 'Install Missing Packages' do
+#     command 'apt-get install qt4-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y --fix-missing'
+#     action:run
+#     # ignore_failure true
+# end
+
+execute 'Clean Up BitCoin Installers' do
+    command "rm bitcoin-#{version}-arm-linux-gnueabihf.tar.gz&&/home/pi/rm -rf /home/pi/bitcoin-#{version}/bin/*"
     action:run
     # ignore_failure true
 end
